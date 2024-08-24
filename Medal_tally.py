@@ -120,12 +120,19 @@ def rank_country(medal_tally):
         i["Rank"]= rank
         rank+=1
 rank_country(medal_tally)
-def print_medal_tally(medal_tally):
+
+# Function to Print the Tally
+def print_medal_tally(medal_tally, n):
+    #If The given N is greater than Total Countries
+    if n > len(medal_tally):
+        n=len(medal_tally)
     header = f"{'Rank':<6} {'Country_Code':<13} {'Country':<20} {'Gold':<6} {'Silver':<7} {'Bronze':<7} {'Total':<6}"
     print(header)
     print("-" * len(header))
-    for entry in medal_tally:
+    for i in range(n):  # Iterate only up to n entries
+        entry = medal_tally[i]
         print(f"{entry['Rank']:<6} {entry['Country_Code']:<13} {entry['Country']:<20} {entry['Gold']:<6} {entry['Silver']:<7} {entry['Bronze']:<7} {entry['Total']:<6}")
 
+# Function Call
 print_medal_tally(medal_tally)
 
