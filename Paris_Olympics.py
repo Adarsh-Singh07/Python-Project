@@ -146,15 +146,17 @@ athletes_data = {
     'Guam': {'Female': 0, 'Male': 1, 'Total': 1},
     'Comoros': {'Female': 0, 'Male': 1, 'Total': 1}
 }
-total_female = 0
-total_male = 0
-total_athletes = 0
-for country, data in athletes_data.items():
-    total_female += data['Female']
-    total_male += data['Male']
-    total_athletes += data['Total']
-#Total
-print("Total Female Athletes:", total_female)
-print("Total Male Athletes:", total_male)
-print("Total Athletes:", total_athletes)
-# return athletes_data
+def Total_Athletes(athletes_data):
+    total_female = 0
+    total_male = 0
+    total_athletes = 0
+    for country, data in athletes_data.items():
+        total_female += data['Female']
+        total_male += data['Male']
+        total_athletes += data['Total']
+    #Total
+    print("Total Female Athletes:", total_female)
+    print("Total Male Athletes:", total_male)
+    print("Total Athletes:", total_athletes)
+    # return athletes_data
+Total_Athletes(athletes_data)
