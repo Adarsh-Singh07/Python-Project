@@ -96,6 +96,20 @@ medal_tally = [
     {"Rank": 95, "Country_Code": "TTO", "Country": "Trinidad and Tobago", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
     {"Rank": 96, "Country_Code": "VEN", "Country": "Venezuela", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1}
 ]
+def insert_country(medal_tally, country_code, country_name, gold, silver, bronze):
+    # Calculate total medals
+    total = gold + silver + bronze
+    # Create the new country's dictionary
+    new_country = {
+        "Country_Code": country_code,
+        "Country": country_name,
+        "Gold": gold,
+        "Silver": silver,
+        "Bronze": bronze,
+        "Total": total
+    }
+    # Insert the new country to the list
+    medal_tally.append(new_country)
 
 def print_medal_tally(medal_tally):
     header = f"{'Rank':<6} {'Country_Code':<13} {'Country':<20} {'Gold':<6} {'Silver':<7} {'Bronze':<7} {'Total':<6}"
