@@ -134,5 +134,5 @@ def print_medal_tally(medal_tally, n):
         print(f"{entry['Rank']:<6} {entry['Country_Code']:<13} {entry['Country']:<20} {entry['Gold']:<6} {entry['Silver']:<7} {entry['Bronze']:<7} {entry['Total']:<6}")
 
 # Function Call
-print_medal_tally(medal_tally)
+print_medal_tally(medal_tally, n)
 
