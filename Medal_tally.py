@@ -111,7 +111,15 @@ def insert_country(medal_tally, country_code, country_name, gold, silver, bronze
     }
     # Insert the new country to the list
     medal_tally.append(new_country)
-
+def sort_country(country):
+    return (-country["Gold"], - country["Silver"], - country["Bronze"], country["Country"])
+def rank_country(medal_tally):
+    medal_tally.sort(key=sort_country)
+    rank=1
+    for i in medal_tally:
+        i["Rank"]= rank
+        rank+=1
+rank_country(medal_tally)
 def print_medal_tally(medal_tally):
     header = f"{'Rank':<6} {'Country_Code':<13} {'Country':<20} {'Gold':<6} {'Silver':<7} {'Bronze':<7} {'Total':<6}"
     print(header)
