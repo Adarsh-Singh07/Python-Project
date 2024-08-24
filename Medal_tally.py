@@ -101,6 +101,7 @@ def insert_country(medal_tally, country_code, country_name, gold, silver, bronze
     total = gold + silver + bronze
     # Create the new country's dictionary
     new_country = {
+        "Rank": len(medal_tally)+1,
         "Country_Code": country_code,
         "Country": country_name,
         "Gold": gold,
