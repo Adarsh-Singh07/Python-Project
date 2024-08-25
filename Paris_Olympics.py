@@ -1,3 +1,4 @@
+#List Of Countries by their athletes count
 Athletes_list = [
     {'Country_Code': 'USA', 'Country': 'United States', 'Female': 328, 'Male': 291, 'Total Athletes': 619},
     {'Country_Code': 'FRA', 'Country': 'France', 'Female': 295, 'Male': 305, 'Total Athletes': 600},
@@ -206,3 +207,13 @@ medal_tally = [
     {"Rank": 96, "Country_Code": "VEN", "Country": "Venezuela", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1}
 ]
 
+# Find The Different Countries between Two Lists
+def find_different_countries(list1, list2):
+    set1 = set(entry['Country'] for entry in list1)  # Extract country codes
+    set2 = set(entry['Country '] for entry in list2)  # Extract country codes
+    
+    different_countries = list(set1.symmetric_difference(set2))
+    return different_countries
+
+different_countries = find_different_countries(athletes_list, Athletes_list)
+print("Different countries:", different_countries)
