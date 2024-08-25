@@ -383,3 +383,14 @@ def find_different_countries(list1, list2):
 
 different_countries = find_different_countries(Athletes_list, Whole_data)
 print("Different countries:", different_countries)
+def print_country_details(country_data):
+    if country_data:
+        print("-" * 40)
+        for key, value in country_data.items():
+            print(f"{key}: {value}")
+        print("-" * 40)
+    else:
+        print("Country not found.")
+search_term = input("Enter country name or code: ")
+country_info = search_country(Whole_data, search_term)
+print_country_details(country_info)
