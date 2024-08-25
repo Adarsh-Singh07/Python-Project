@@ -294,8 +294,9 @@ def rank_country(medal_tally):
         i["Rank"]= rank
         rank+=1
 
-rank_country(Whole_data)
-print_Whole_table(Whole_data)
+# rank_country(Whole_data)
+# print_Whole_table(Whole_data)
+
 
 
 # A Function to merge data of Two lists
