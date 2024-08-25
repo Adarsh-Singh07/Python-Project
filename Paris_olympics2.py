@@ -181,3 +181,11 @@ def print_simple_table(data):
 
 # Call the function to print the table
 print_simple_table(Athletes_list)
+def average_athletes_per_country(athletes_list):
+    total_athletes = sum(country['Total_Athletes'] for country in athletes_list)
+    average_athletes = total_athletes / len(athletes_list)
+    return average_athletes
+
+# Example usage:
+average_athletes = average_athletes_per_country(Athletes_data)
+print(f"Average number of athletes per country: {average_athletes:.2f}")
