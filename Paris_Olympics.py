@@ -468,7 +468,6 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
 
 #Taking Input From User to Add a new Country
 def get_user_input():
-
     while True:
         country_code = input("Enter the country code: ").lower()
         country_name = input("Enter the country name: ").lower()
@@ -528,21 +527,36 @@ def get_user_input():
             "Medals": medal_data
         }
 
-# Loop to add multiple countries
+# Main loop to add countries
 while True:
     user_input = get_user_input()
+    
     if user_input is not None:
-        country_code = user_input.get('country_code')
-        country_name = user_input.get('country_name')
-        female_athletes = user_input.get('female_athletes')
-        male_athletes = user_input.get('male_athletes')
-        medal_data = user_input.get('medal_data', None) 
-        Whole_data = add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data)
+        # Using the correct case for keys
+        country_code = user_input.get('Country_Code')
+        country_name = user_input.get('Country')
+        female_athletes = user_input.get('Female')
+        male_athletes = user_input.get('Male')
+        medal_data = user_input.get('Medals', None)
 
+        # Check if any required data is missing
+        if not country_code:
+            print("Error: Country code is missing.")
+        elif not country_name:
+            print("Error: Country name is missing.")
+        elif female_athletes is None:
+            print("Error: Number of female athletes is missing.")
+        elif male_athletes is None:
+            print("Error: Number of male athletes is missing.")
+        else:
+            # If all required data is present, proceed to add the country
+            Whole_data = add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data)
+
+        # Ask if the user wants to add another country
         more_countries = input("Do you want to add another country? (yes/no): ").lower()
         if more_countries not in ["yes", "y"]:
             break
     else:
         print("Adding country canceled.")
-        break  # This break is to exit the loop if the user cancels
-
+        break
+print_Whole_table(Whole_data)
