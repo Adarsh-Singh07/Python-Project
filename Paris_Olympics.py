@@ -169,3 +169,40 @@ Athletes_list = [
 
 ]
 print(len(Athletes_list))
+
+#Medal Tally By Country Details
+medal_tally = [
+    {"Rank": 65, "Country_Code": "TUR", "Country": "Türkiye", "Gold": 0, "Silver": 3, "Bronze": 5, "Total": 8},
+    {"Rank": 66, "Country_Code": "MEX", "Country": "Mexico", "Gold": 0, "Silver": 3, "Bronze": 2, "Total": 5},
+    {"Rank": 67, "Country_Code": "ARM", "Country": "Armenia", "Gold": 0, "Silver": 3, "Bronze": 1, "Total": 4},
+    {"Rank": 68, "Country_Code": "COL", "Country": "Colombia", "Gold": 0, "Silver": 3, "Bronze": 1, "Total": 4},
+    {"Rank": 69, "Country_Code": "PRK", "Country": "DPR Korea", "Gold": 0, "Silver": 2, "Bronze": 4, "Total": 6},
+    {"Rank": 70, "Country_Code": "KGZ", "Country": "Kyrgyzstan", "Gold": 0, "Silver": 2, "Bronze": 4, "Total": 6},
+    {"Rank": 71, "Country_Code": "LTU", "Country": "Lithuania", "Gold": 0, "Silver": 2, "Bronze": 2, "Total": 4},
+    {"Rank": 72, "Country_Code": "IND", "Country": "India", "Gold": 0, "Silver": 1, "Bronze": 5, "Total": 6},
+    {"Rank": 73, "Country_Code": "MDA", "Country": "Republic of Moldova", "Gold": 0, "Silver": 1, "Bronze": 3, "Total": 4},
+    {"Rank": 74, "Country_Code": "KOS", "Country": "Kosovo", "Gold": 0, "Silver": 1, "Bronze": 1, "Total": 2},
+    {"Rank": 75, "Country_Code": "CYP", "Country": "Cyprus", "Gold": 0, "Silver": 1, "Bronze": 0, "Total": 1},
+    {"Rank": 76, "Country_Code": "FIJ", "Country": "Fiji", "Gold": 0, "Silver": 1, "Bronze": 0, "Total": 1},
+    {"Rank": 77, "Country_Code": "JOR", "Country": "Jordan", "Gold": 0, "Silver": 1, "Bronze": 0, "Total": 1},
+    {"Rank": 78, "Country_Code": "MGL", "Country": "Mongolia", "Gold": 0, "Silver": 1, "Bronze": 0, "Total": 1},
+    {"Rank": 79, "Country_Code": "PAN", "Country": "Panama", "Gold": 0, "Silver": 1, "Bronze": 0, "Total": 1},
+    {"Rank": 80, "Country_Code": "TJK", "Country": "Tajikistan", "Gold": 0, "Silver": 0, "Bronze": 3, "Total": 3},
+    {"Rank": 81, "Country_Code": "ALB", "Country": "Albania", "Gold": 0, "Silver": 0, "Bronze": 2, "Total": 2},
+    {"Rank": 82, "Country_Code": "GRN", "Country": "Grenada", "Gold": 0, "Silver": 0, "Bronze": 2, "Total": 2},
+    {"Rank": 83, "Country_Code": "MAS", "Country": "Malaysia", "Gold": 0, "Silver": 0, "Bronze": 2, "Total": 2},
+    {"Rank": 84, "Country_Code": "PUR", "Country": "Puerto Rico", "Gold": 0, "Silver": 0, "Bronze": 2, "Total": 2},
+    {"Rank": 85, "Country_Code": "CPV", "Country": "Cabo Verde", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 86, "Country_Code": "CIV", "Country": "Côte d'Ivoire", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 87, "Country_Code": "EOR", "Country": "Refugee Olympic Team", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 88, "Country_Code": "NAM", "Country": "Namibia", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 89, "Country_Code": "NGR", "Country": "Nigeria", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 90, "Country_Code": "QAT", "Country": "Qatar", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 91, "Country_Code": "KSA", "Country": "Saudi Arabia", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 92, "Country_Code": "SEN", "Country": "Senegal", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 93, "Country_Code": "SRI", "Country": "Sri Lanka", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 94, "Country_Code": "SYR", "Country": "Syria", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 95, "Country_Code": "TTO", "Country": "Trinidad and Tobago", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
+    {"Rank": 96, "Country_Code": "VEN", "Country": "Venezuela", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1}
+]
+
