@@ -319,7 +319,7 @@ def merge_data(athlete_data, medal_data):
 
 def print_simple_table(data):
     # Print the header
-    print("Country Name                | Country Code | Female  | Male   | Total  ")
+    print("Country Name                  | Country Code  | Female  | Male   | Total  ")
     print("------------------------------|---------------|---------|--------|--------")
 
     # Print each row
@@ -358,9 +358,9 @@ def top_10_countries_by_sex_ratio(athletes_list):
 def countries_with_more_female_athletes(athletes_list):
     countries = [(country['Country'], country['Female']) for country in athletes_list if country['Female'] > country['Male']]
     print("Countries with More Female Athletes:")
-    print("-----------------------------------")
+    print("-----------------------------------------------------------")
     for country, female_count in countries:
-        print(f"{country}: {female_count} female athletes")
+        print(f"{country:25}: {female_count} female athletes")
 
 def delete_country(country_code, country_name, data_list):
     index = None
