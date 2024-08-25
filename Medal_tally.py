@@ -1,179 +1,5 @@
-#List Of Countries by their athletes count
-Athletes_list = [
-    {'Country_Code': 'USA', 'Country': 'United States', 'Female': 328, 'Male': 291, 'Total Athletes': 619},
-    {'Country_Code': 'FRA', 'Country': 'France', 'Female': 295, 'Male': 305, 'Total Athletes': 600},
-    {'Country_Code': 'AUS', 'Country': 'Australia', 'Female': 265, 'Male': 210, 'Total Athletes': 475},
-    {'Country_Code': 'GER', 'Country': 'Germany', 'Female': 225, 'Male': 232, 'Total Athletes': 457},
-    {'Country_Code': 'JPN', 'Country': 'Japan', 'Female': 201, 'Male': 230, 'Total Athletes': 431},
-    {'Country_Code': 'ESP', 'Country': 'Spain', 'Female': 202, 'Male': 199, 'Total Athletes': 401},
-    {'Country_Code': 'CHN', 'Country': 'China', 'Female': 264, 'Male': 134, 'Total Athletes': 398},
-    {'Country_Code': 'ITA', 'Country': 'Italy', 'Female': 192, 'Male': 205, 'Total Athletes': 397},
-    {'Country_Code': 'GBR', 'Country': 'Great Britain', 'Female': 178, 'Male': 164, 'Total Athletes': 342},
-    {'Country_Code': 'CAN', 'Country': 'Canada', 'Female': 203, 'Male': 129, 'Total Athletes': 332},
-    {'Country_Code': 'BRA', 'Country': 'Brazil', 'Female': 164, 'Male': 126, 'Total Athletes': 290},
-    {'Country_Code': 'NED', 'Country': 'Netherlands', 'Female': 172, 'Male': 117, 'Total Athletes': 289},
-    {'Country_Code': 'POL', 'Country': 'Poland', 'Female': 124, 'Male': 102, 'Total Athletes': 226},
-    {'Country_Code': 'NZL', 'Country': 'New Zealand', 'Female': 101, 'Male': 107, 'Total Athletes': 208},
-    {'Country_Code': 'HUN', 'Country': 'Hungary', 'Female': 85, 'Male': 92, 'Total Athletes': 177},
-    {'Country_Code': 'BEL', 'Country': 'Belgium', 'Female': 88, 'Male': 89, 'Total Athletes': 177},
-    {'Country_Code': 'EGY', 'Country': 'Egypt', 'Female': 54, 'Male': 103, 'Total Athletes': 157},
-    {'Country_Code': 'KOR', 'Country': 'Korea', 'Female': 81, 'Male': 66, 'Total Athletes': 147},
-    {'Country_Code': 'IRL', 'Country': 'Ireland', 'Female': 69, 'Male': 74, 'Total Athletes': 143},
-    {'Country_Code': 'ARG', 'Country': 'Argentina', 'Female': 33, 'Male': 110, 'Total Athletes': 143},
-    {'Country_Code': 'RSA', 'Country': 'South Africa', 'Female': 63, 'Male': 78, 'Total Athletes': 141},
-    {'Country_Code': 'UKR', 'Country': 'Ukraine', 'Female': 69, 'Male': 72, 'Total Athletes': 141},
-    {'Country_Code': 'SUI', 'Country': 'Switzerland', 'Female': 66, 'Male': 71, 'Total Athletes': 137},
-    {'Country_Code': 'DEN', 'Country': 'Denmark', 'Female': 74, 'Male': 57, 'Total Athletes': 131},
-    {'Country_Code': 'SWE', 'Country': 'Sweden', 'Female': 66, 'Male': 59, 'Total Athletes': 125},
-    {'Country_Code': 'SRB', 'Country': 'Serbia', 'Female': 44, 'Male': 70, 'Total Athletes': 114},
-    {'Country_Code': 'IND', 'Country': 'India', 'Female': 46, 'Male': 66, 'Total Athletes': 112},
-    {'Country_Code': 'CZE', 'Country': 'Czechia', 'Female': 49, 'Male': 62, 'Total Athletes': 111},
-    {'Country_Code': 'NOR', 'Country': 'Norway', 'Female': 53, 'Male': 56, 'Total Athletes': 109},
-    {'Country_Code': 'MEX', 'Country': 'Mexico', 'Female': 63, 'Male': 45, 'Total Athletes': 108},
-    {'Country_Code': 'TUR', 'Country': 'Türkiye', 'Female': 54, 'Male': 47, 'Total Athletes': 101},
-    {'Country_Code': 'GRE', 'Country': 'Greece', 'Female': 41, 'Male': 59, 'Total Athletes': 100},
-    {'Country_Code': 'ROU', 'Country': 'Romania', 'Female': 47, 'Male': 49, 'Total Athletes': 96},
-    {'Country_Code': 'SLO', 'Country': 'Slovenia', 'Female': 47, 'Male': 48, 'Total Athletes': 95},
-    {'Country_Code': 'ISR', 'Country': 'Israel', 'Female': 33, 'Male': 56, 'Total Athletes': 89},
-    {'Country_Code': 'COL', 'Country': 'Colombia', 'Female': 51, 'Male': 37, 'Total Athletes': 88},
-    {'Country_Code': 'UZB', 'Country': 'Uzbekistan', 'Female': 31, 'Male': 57, 'Total Athletes': 88},
-    {'Country_Code': 'NGR', 'Country': 'Nigeria', 'Female': 63, 'Male': 23, 'Total Athletes': 86},
-    {'Country_Code': 'AUT', 'Country': 'Austria', 'Female': 37, 'Male': 47, 'Total Athletes': 84},
-    {'Country_Code': 'KAZ', 'Country': 'Kazakhstan', 'Female': 25, 'Male': 54, 'Total Athletes': 79},
-    {'Country_Code': 'POR', 'Country': 'Portugal', 'Female': 37, 'Male': 38, 'Total Athletes': 75},
-    {'Country_Code': 'KEN', 'Country': 'Kenya', 'Female': 34, 'Male': 40, 'Total Athletes': 74},
-    {'Country_Code': 'CRO', 'Country': 'Croatia', 'Female': 15, 'Male': 58, 'Total Athletes': 73},
-    {'Country_Code': 'JAM', 'Country': 'Jamaica', 'Female': 32, 'Male': 33, 'Total Athletes': 65},
-    {'Country_Code': 'MAR', 'Country': 'Morocco', 'Female': 18, 'Male': 43, 'Total Athletes': 61},
-    {'Country_Code': 'CUB', 'Country': 'Cuba', 'Female': 27, 'Male': 34, 'Total Athletes': 61},
-    {'Country_Code': 'TPE', 'Country': 'Chinese Taipei', 'Female': 34, 'Male': 26, 'Total Athletes': 60},
-    {'Country_Code': 'DOM', 'Country': 'Dominican Republic', 'Female': 25, 'Male': 34, 'Total Athletes': 59},
-    {'Country_Code': 'FIN', 'Country': 'Finland', 'Female': 34, 'Male': 23, 'Total Athletes': 57},
-    {'Country_Code': 'THA', 'Country': 'Thailand', 'Female': 28, 'Male': 24, 'Total Athletes': 52},
-    {'Country_Code': 'LTU', 'Country': 'Lithuania', 'Female': 24, 'Male': 27, 'Total Athletes': 51},
-    {'Country_Code': 'PUR', 'Country': 'Puerto Rico', 'Female': 24, 'Male': 27, 'Total Athletes': 51},
-    {'Country_Code': 'AZE', 'Country': 'Azerbaijan', 'Female': 20, 'Male': 28, 'Total Athletes': 48},
-    {'Country_Code': 'CHI', 'Country': 'Chile', 'Female': 18, 'Male': 30, 'Total Athletes': 48},
-    {'Country_Code': 'BUL', 'Country': 'Bulgaria', 'Female': 25, 'Male': 21, 'Total Athletes': 46},
-    {'Country_Code': 'ALG', 'Country': 'Algeria', 'Female': 19, 'Male': 27, 'Total Athletes': 46},
-    {'Country_Code': 'IRI', 'Country': 'IR Iran', 'Female': 11, 'Male': 30, 'Total Athletes': 41},
-    {'Country_Code': 'ECU', 'Country': 'Ecuador', 'Female': 24, 'Male': 16, 'Total Athletes': 40},
-    {'Country_Code': 'EOR', 'Country': 'EOR', 'Female': 13, 'Male': 24, 'Total Athletes': 37},
-    {'Country_Code': 'FIJ', 'Country': 'Fiji', 'Female': 17, 'Male': 19, 'Total Athletes': 36},
-    {'Country_Code': 'HKG', 'Country': 'Hong Kong, China', 'Female': 18, 'Male': 16, 'Total Athletes': 34},
-    {'Country_Code': 'ETH', 'Country': 'Ethiopia', 'Female': 17, 'Male': 16, 'Total Athletes': 33},
-    {'Country_Code': 'AIN', 'Country': 'AIN', 'Female': 17, 'Male': 15, 'Total Athletes': 32},
-    {'Country_Code': 'MGL', 'Country': 'Mongolia', 'Female': 18, 'Male': 14, 'Total Athletes': 32},
-    {'Country_Code': 'ZAM', 'Country': 'Zambia', 'Female': 22, 'Male': 9, 'Total Athletes': 31},
-    {'Country_Code': 'VEN', 'Country': 'Venezuela', 'Female': 14, 'Male': 17, 'Total Athletes': 31},
-    {'Country_Code': 'PAR', 'Country': 'Paraguay', 'Female': 6, 'Male': 23, 'Total Athletes': 29},
-    {'Country_Code': 'INA', 'Country': 'Indonesia', 'Female': 13, 'Male': 16, 'Total Athletes': 29},
-    {'Country_Code': 'LAT', 'Country': 'Latvia', 'Female': 13, 'Male': 16, 'Total Athletes': 29},
-    {'Country_Code': 'SVK', 'Country': 'Slovakia', 'Female': 14, 'Male': 14, 'Total Athletes': 28},
-    {'Country_Code': 'GEO', 'Country': 'Georgia', 'Female': 7, 'Male': 21, 'Total Athletes': 28},
-    {'Country_Code': 'URU', 'Country': 'Uruguay', 'Female': 4, 'Male': 23, 'Total Athletes': 27},
-    {'Country_Code': 'MAS', 'Country': 'Malaysia', 'Female': 13, 'Male': 13, 'Total Athletes': 26},
-    {'Country_Code': 'TUN', 'Country': 'Tunisia', 'Female': 14, 'Male': 12, 'Total Athletes': 26},
-    {'Country_Code': 'PER', 'Country': 'Peru', 'Female': 17, 'Male': 9, 'Total Athletes': 26},
-    {'Country_Code': 'MDA', 'Country': 'Republic of Moldova', 'Female': 12, 'Male': 14, 'Total Athletes': 26},
-    {'Country_Code': 'GUI', 'Country': 'Guinea', 'Female': 5, 'Male': 20, 'Total Athletes': 25},
-    {'Country_Code': 'UGA', 'Country': 'Uganda', 'Female': 13, 'Male': 12, 'Total Athletes': 25},
-    {'Country_Code': 'ANG', 'Country': 'Angola', 'Female': 17, 'Male': 8, 'Total Athletes': 25},
-    {'Country_Code': 'SAM', 'Country': 'Samoa', 'Female': 4, 'Male': 20, 'Total Athletes': 24},
-    {'Country_Code': 'MLI', 'Country': 'Mali', 'Female': 2, 'Male': 22, 'Total Athletes': 24},
-    {'Country_Code': 'EST', 'Country': 'Estonia', 'Female': 8, 'Male': 16, 'Total Athletes': 24},
-    {'Country_Code': 'SGP', 'Country': 'Singapore', 'Female': 16, 'Male': 7, 'Total Athletes': 23},
-    {'Country_Code': 'IRQ', 'Country': 'Iraq', 'Female': 0, 'Male': 23, 'Total Athletes': 23},
-    {'Country_Code': 'PHI', 'Country': 'Philippines', 'Female': 15, 'Male': 7, 'Total Athletes': 22},
-    {'Country_Code': 'BAH', 'Country': 'Bahamas', 'Female': 8, 'Male': 11, 'Total Athletes': 19},
-    {'Country_Code': 'MNE', 'Country': 'Montenegro', 'Female': 3, 'Male': 16, 'Total Athletes': 19},
-    {'Country_Code': 'TTO', 'Country': 'Trinidad and Tobago', 'Female': 7, 'Male': 10, 'Total Athletes': 17},
-    {'Country_Code': 'VIE', 'Country': 'Vietnam', 'Female': 12, 'Male': 4, 'Total Athletes': 16},
-    {'Country_Code': 'KGZ', 'Country': 'Kyrgyzstan', 'Female': 5, 'Male': 11, 'Total Athletes': 16},
-    {'Country_Code': 'GUA', 'Country': 'Guatemala', 'Female': 6, 'Male': 10, 'Total Athletes': 16},
-    {'Country_Code': 'CYP', 'Country': 'Cyprus', 'Female': 9, 'Male': 6, 'Total Athletes': 15},
-    {'Country_Code': 'ARM', 'Country': 'Armenia', 'Female': 2, 'Male': 13, 'Total Athletes': 15},
-    {'Country_Code': 'BOT', 'Country': 'Botswana', 'Female': 2, 'Male': 12, 'Total Athletes': 14},
-    {'Country_Code': 'PRK', 'Country': 'DPR Korea', 'Female': 10, 'Male': 4, 'Total Athletes': 14},
-    {'Country_Code': 'SRI', 'Country': 'Sri Lanka', 'Female': 9, 'Male': 5, 'Total Athletes': 14},
-    {'Country_Code': 'CIV', 'Country': 'Côte d’Ivoire', 'Female': 7, 'Male': 6, 'Total Athletes': 13},
-    {'Country_Code': 'BIH', 'Country': 'Bosnia and Herzegovina', 'Female': 4, 'Male': 8, 'Total Athletes': 12},
-    {'Country_Code': 'SEN', 'Country': 'Senegal', 'Female': 2, 'Male': 10, 'Total Athletes': 12},
-    {'Country_Code': 'HON', 'Country': 'Honduras', 'Female': 4, 'Male': 8, 'Total Athletes': 12},
-    {'Country_Code': 'SYR', 'Country': 'Syrian Arab Republic', 'Female': 5, 'Male': 6, 'Total Athletes': 11},
-    {'Country_Code': 'BAR', 'Country': 'Barbados', 'Female': 5, 'Male': 6, 'Total Athletes': 11},
-    {'Country_Code': 'QAT', 'Country': 'Qatar', 'Female': 4, 'Male': 7, 'Total Athletes': 11},
-    {'Country_Code': 'SUD', 'Country': 'Sudan', 'Female': 5, 'Male': 5, 'Total Athletes': 10},
-    {'Country_Code': 'KOS', 'Country': 'Kosovo', 'Female': 4, 'Male': 5, 'Total Athletes': 9},
-    {'Country_Code': 'MRI', 'Country': 'Mauritius', 'Female': 3, 'Male': 6, 'Total Athletes': 9},
-    {'Country_Code': 'SUR', 'Country': 'Suriname', 'Female': 2, 'Male': 6, 'Total Athletes': 8},
-    {'Country_Code': 'LBN', 'Country': 'Lebanon', 'Female': 3, 'Male': 4, 'Total Athletes': 7},
-    {'Country_Code': 'TJK', 'Country': 'Tajikistan', 'Female': 2, 'Male': 5, 'Total Athletes': 7},
-    {'Country_Code': 'TOG', 'Country': 'Togo', 'Female': 3, 'Male': 4, 'Total Athletes': 7},
-    {'Country_Code': 'CPV', 'Country': 'Cabo Verde', 'Female': 3, 'Male': 4, 'Total Athletes': 7},
-    {'Country_Code': 'NEP', 'Country': 'Nepal', 'Female': 5, 'Male': 2, 'Total Athletes': 7},
-    {'Country_Code': 'SOM', 'Country': 'Somalia', 'Female': 5, 'Male': 1, 'Total Athletes': 6},
-    {'Country_Code': 'DJI', 'Country': 'Djibouti', 'Female': 1, 'Male': 5, 'Total Athletes': 6},
-    {'Country_Code': 'GAB', 'Country': 'Gabon', 'Female': 1, 'Male': 5, 'Total Athletes': 6},
-    {'Country_Code': 'COD', 'Country': 'Democratic Republic of the Congo', 'Female': 1, 'Male': 4, 'Total Athletes': 5},
-    {'Country_Code': 'TLS', 'Country': 'Timor-Leste', 'Female': 2, 'Male': 3, 'Total Athletes': 5},
-    {'Country_Code': 'SEY', 'Country': 'Seychelles', 'Female': 3, 'Male': 2, 'Total Athletes': 5},
-    {'Country_Code': 'CGO', 'Country': 'Congo', 'Female': 3, 'Male': 2, 'Total Athletes': 5},
-    {'Country_Code': 'MDV', 'Country': 'Maldives', 'Female': 4, 'Male': 0, 'Total Athletes': 4},
-    {'Country_Code': 'SMR', 'Country': 'San Marino', 'Female': 2, 'Male': 2, 'Total Athletes': 4},
-    {'Country_Code': 'BIZ', 'Country': 'Belize', 'Female': 3, 'Male': 1, 'Total Athletes': 4},
-    {'Country_Code': 'HAI', 'Country': 'Haiti', 'Female': 2, 'Male': 2, 'Total Athletes': 4},
-    {'Country_Code': 'KIR', 'Country': 'Kiribati', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
-    {'Country_Code': 'BRU', 'Country': 'Brunei Darussalam', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
-    {'Country_Code': 'CHA', 'Country': 'Chad', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
-    {'Country_Code': 'LAO', 'Country': 'Lao People\'s Democratic Republic', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
-    {'Country_Code': 'MAL', 'Country': 'Malta', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
-    {'Country_Code': 'ISL', 'Country': 'Iceland', 'Female': 2, 'Male': 0, 'Total Athletes': 2},
-    {'Country_Code': 'STP', 'Country': 'Sao Tome and Principe', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'CAM', 'Country': 'Cambodia', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'YEM', 'Country': 'Yemen', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'AND', 'Country': 'Andorra', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
-    {'Country_Code': 'BER', 'Country': 'Bermuda', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
-    {'Country_Code': 'SOL', 'Country': 'Solomon Islands', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'LBR', 'Country': 'Liberia', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'TUV', 'Country': 'Tuvalu', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'RWA', 'Country': 'Rwanda', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'STK', 'Country': 'St Kitts and Nevis', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'CUW', 'Country': 'Curaçao', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'LBA', 'Country': 'Libya', 'Female': 1, 'Male': 3, 'Total Athletes': 4},
-    {'Country_Code': 'MYA', 'Country': 'Myanmar', 'Female': 0, 'Male': 3, 'Total Athletes': 3}, 
-    {'Country_Code': 'COM', 'Country': 'Comoros', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'CAF', 'Country': 'Central African Republic', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
-    {'Country_Code': 'SLE', 'Country': 'Sierra Leone', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'MAD', 'Country': 'Madagascar', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
-    {'Country_Code': 'LES', 'Country': 'Lesotho', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'MTN', 'Country': 'Mauritania', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
-    {'Country_Code': 'SWZ', 'Country': 'Eswatini', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'BEN', 'Country': 'Benin', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'NAM', 'Country': 'Namibia', 'Female': 2, 'Male': 0, 'Total Athletes': 2},
-    {'Country_Code': 'FSM', 'Country': 'Micronesia', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'GAM', 'Country': 'Gambia', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'PLW', 'Country': 'Palau', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'SSD', 'Country': 'South Sudan', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'TGA', 'Country': 'Tonga', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'COK', 'Country': 'Cook Islands', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'MTQ', 'Country': 'Martinique', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'VIN', 'Country': 'Saint Vincent and the Grenadines', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'VAN', 'Country': 'Vanuatu', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'GRN', 'Country': 'Grenada', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'MHL', 'Country': 'Marshall Islands', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'DMA', 'Country': 'Dominica', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'MON', 'Country': 'Monaco', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'NRU', 'Country': 'Nauru', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'NCA', 'Country': 'Nicaragua', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'MAW', 'Country': 'Malawi', 'Female': 0, 'Male': 1, 'Total Athletes': 1}
-
-]
-print(len(Athletes_list))
-
-#Medal Tally By Country Details
 medal_tally = [
-     {"Rank": 1, "Country_Code": "USA", "Country": "United States", "Gold": 40, "Silver": 44, "Bronze": 42, "Total": 126},
+    {"Rank": 1, "Country_Code": "USA", "Country": "United States", "Gold": 40, "Silver": 44, "Bronze": 42, "Total": 126},
     {"Rank": 2, "Country_Code": "CHN", "Country": "China", "Gold": 40, "Silver": 27, "Bronze": 24, "Total": 91},
     {"Rank": 3, "Country_Code": "JPN", "Country": "Japan", "Gold": 20, "Silver": 12, "Bronze": 13, "Total": 45},
     {"Rank": 4, "Country_Code": "AUS", "Country": "Australia", "Gold": 18, "Silver": 19, "Bronze": 16, "Total": 53},
@@ -270,61 +96,21 @@ medal_tally = [
     {"Rank": 95, "Country_Code": "TTO", "Country": "Trinidad and Tobago", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1},
     {"Rank": 96, "Country_Code": "VEN", "Country": "Venezuela", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1}
 ]
-
-# Find The Different Countries between Two Lists
-def find_different_countries(list1, list2):
-    set1 = set(entry['Country'] for entry in list1)  # Extract country codes
-    set2 = set(entry['Country'] for entry in list2)  # Extract country codes
-    
-    different_countries = list(set1.symmetric_difference(set2))
-    return different_countries
-
-different_countries = find_different_countries(medal_tally, Athletes_list)
-# print("Different countries:", different_countries)
-
-
-# A Function to merge data of Two lists
-def Merge_data(athlete_data, medal_data):
-    merged_data = []
-    medal_dict = {entry['Country_Code']: entry for entry in medal_data}
-
-
-    for athlete in athlete_data:
-        country_code = athlete['Country_Code']
-        country_medals = medal_dict.get(country_code, {
-            "Gold": 0,
-            "Silver": 0,
-            "Bronze": 0,
-            "Total": 0
-        })
-        merged_entry = {
-            "Country_Code": country_code,
-            "Country": athlete['Country'],
-            "Female": athlete['Female'],
-            "Male": athlete['Male'],
-            "Total_Athletes": athlete['Total Athletes'],
-            "Gold": country_medals.get("Gold", 0),
-            "Silver": country_medals.get("Silver", 0),
-            "Bronze": country_medals.get("Bronze", 0),
-            "Total_Medals": country_medals.get("Total", 0)
-        }
-
-        merged_data.append(merged_entry)
-
-    return merged_data
-Whole_data = Merge_data(Athletes_list, medal_tally)
-
-# A Function To Print Whole data
-def print_Whole_table(olympic_data):
-    #Print the header
-    print(" Rank | Country                          | Female  | Male    | Total Athletes   | Gold  | Silver | Bronze | Total Medals")
-    print("------|----------------------------------|---------|---------|------------------|-------|--------|--------|-------------")
-
-    # Print each row
-    for entry in olympic_data:
-        print(f"{entry['Rank']:6} | {entry['Country']:32} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total_Athletes']:16} | {entry['Gold']:5} | {entry['Silver']:6} | {entry['Bronze']:6} | {entry['Total_Medals']:7}")
-
-
+def insert_country(medal_tally, country_code, country_name, gold, silver, bronze):
+    # Calculate total medals
+    total = gold + silver + bronze
+    # Create the new country's dictionary
+    new_country = {
+        "Rank": len(medal_tally)+1,
+        "Country_Code": country_code,
+        "Country": country_name,
+        "Gold": gold,
+        "Silver": silver,
+        "Bronze": bronze,
+        "Total": total
+    }
+    # Insert the new country to the list
+    medal_tally.append(new_country)
 def sort_country(country):
     return (-country["Gold"], - country["Silver"], - country["Bronze"], country["Country"])
 def rank_country(medal_tally):
@@ -333,5 +119,19 @@ def rank_country(medal_tally):
     for i in medal_tally:
         i["Rank"]= rank
         rank+=1
-rank_country(Whole_data)
-print_Whole_table(Whole_data)
+rank_country(medal_tally)
+
+# Function to Print the Tally
+def print_medal_tally(medal_tally, n):
+    #If The given N is greater than Total Countries
+    if n > len(medal_tally):
+        n=len(medal_tally)
+    header = f"{'Rank':<6} {'Country_Code':<13} {'Country':<20} {'Gold':<6} {'Silver':<7} {'Bronze':<7} {'Total':<6}"
+    print(header)
+    print("-" * len(header))
+    for i in range(n):  # Iterate only up to n entries
+        entry = medal_tally[i]
+        print(f"{entry['Rank']:<6} {entry['Country_Code']:<13} {entry['Country']:<20} {entry['Gold']:<6} {entry['Silver']:<7} {entry['Bronze']:<7} {entry['Total']:<6}")
+
+# Function Call
+print_medal_tally(medal_tally, n)
