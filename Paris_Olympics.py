@@ -415,7 +415,7 @@ def print_country_details(country_data):
 def add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data=None):
     # Flag to check if the country exists in Athletes_list
     country_exists = False
-   
+
     # Update Athletes_list if country exists
     for entry in Athletes_list:
         entry_country_code = entry.get('Country_Code', "")
@@ -423,12 +423,14 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
 
         if isinstance(entry_country_code, str) and isinstance(entry_country_name, str):
             # Ensure the country code is uppercase
-            country_code = country_code.upper()
-                       
-            
+            if country_code: # Check if country_code is not None
+                country_code = country_code.upper()
+
+
             # Format the country name to title case
-            country_name = country_name.title()
-            
+            if country_name:
+                country_name = country_name.title()
+
             new_entry = {
                 'Country_Code': country_code,
                 'Country': country_name,
@@ -438,7 +440,7 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
             }
             Athletes_list.append(new_entry)
             # print(f"Added new entry to Athletes_list: {new_entry}")  # Debugging print
-        
+
     # Check if the country exists in medal_tally
     # Check if the country exists in medal_tally
     medal_exists = False
@@ -446,7 +448,7 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
         for entry in medal_tally:
             entry_country_code = entry.get('Country_Code', "")
             entry_country_name = entry.get('Country', "")
-            
+
             if isinstance(entry_country_code, str) and isinstance(entry_country_name, str):
                 if entry_country_code.lower() == country_code.lower() and entry_country_name.lower() == country_name.lower():
                     entry.update(medal_data)
@@ -456,7 +458,7 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
         if not medal_exists:
             new_medal_entry = {
                 'Rank': len(medal_tally) + 1,  # Assuming ranks are sequential
-                'Country_Code': country_code.upper(),
+                'Country_Code': country_code.upper() if country_code else None, #Handle potential None for country_code
                 'Country': country_name,
                 **medal_data
             }
@@ -465,7 +467,6 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
     Whole_data = Merge_data(Athletes_list, medal_tally)
 
     return Whole_data
-
 #Taking Input From User to Add a new Country
 def get_user_input():
     while True:
