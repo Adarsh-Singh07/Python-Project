@@ -465,3 +465,87 @@ def add_new_country(country_code, country_name, female_athletes, male_athletes, 
     Whole_data = Merge_data(Athletes_list, medal_tally)
 
     return Whole_data
+
+#Taking Input From User to Add a new Country
+def get_user_input():
+
+    while True:
+        country_code = input("Enter the country code: ").lower()
+        country_name = input("Enter the country name: ").lower()
+
+        # Check if country code or name already exists
+        for entry in Athletes_list:
+            if entry['Country_Code'].lower() == country_code or entry['Country'].lower() == country_name:
+                print("Country already exists!")
+                while True:
+                    choice = input("Do you want to modify the existing data? (yes/no or y/n): ").lower()
+                    if choice in ["yes", "y"]:
+                        # Modify existing entry
+                        entry['Female'] = int(input("Enter the number of female athletes: "))
+                        entry['Male'] = int(input("Enter the number of male athletes: "))
+                        entry['Total Athletes'] = entry['Female'] + entry['Male']
+
+                        # Optional medal data update
+                        has_medals = input("Does the country have medals? (yes/no): ").lower()
+                        if has_medals == "yes":
+                            entry['Gold'] = int(input("Enter the number of gold medals: "))
+                            entry['Silver'] = int(input("Enter the number of silver medals: "))
+                            entry['Bronze'] = int(input("Enter the number of bronze medals: "))
+                            entry['Total_Medals'] = entry['Gold'] + entry['Silver'] + entry['Bronze']
+                        else:
+                            entry['Gold'] = entry['Silver'] = entry['Bronze'] = entry['Total_Medals'] = 0
+                        return entry
+                    elif choice in ["no", "n"]:
+                        return None  # Cancel adding the country
+                    else:
+                        print("Invalid choice. Please enter 'yes/y' or 'no/n'.")
+
+        # If country doesn't exist, proceed with adding new data
+        female_athletes = int(input("Enter the number of female athletes: "))
+        male_athletes = int(input("Enter the number of male athletes: "))
+        total_athletes = female_athletes + male_athletes
+        # Optional medal data input
+        has_medals = input("Does the country have medals? (yes/no): ").lower()
+        if has_medals == "yes":
+            gold_medals = int(input("Enter the number of gold medals: "))
+            silver_medals = int(input("Enter the number of silver medals: "))
+            bronze_medals = int(input("Enter the number of bronze medals: "))
+            medal_data = {
+                "Gold": gold_medals,
+                "Silver": silver_medals,
+                "Bronze": bronze_medals,
+                "Total": gold_medals + silver_medals + bronze_medals
+            }
+        else:
+            medal_data = None
+
+        return {
+            "Country_Code": country_code,
+            "Country": country_name,
+            "Female": female_athletes,
+            "Male": male_athletes,
+            "Total Athletes": total_athletes,
+            "Medals": medal_data
+        }
+
+# Loop to add multiple countries
+while True:
+    user_input = get_user_input()
+    if user_input is not None:
+        country_code = user_input.get('Country_Code')
+        country_name = user_input.get('Country')
+        female_athletes = user_input.get('Female')
+        male_athletes = user_input.get('Male')
+        medal_data = user_input.get('Medals', None) 
+        Whole_data = add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data)
+
+        more_countries = input("Do you want to add another country? (yes/no): ").lower()
+        if more_countries not in ["yes", "y"]:
+            break
+    else:
+        print("Adding country canceled.")
+        break
+
+    else:
+        print("Adding country canceled.")
+        break
