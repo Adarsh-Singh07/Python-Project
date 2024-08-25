@@ -284,6 +284,20 @@ def remove_duplicates(data):
 
     return unique_countries
 
+#SOrting the Tables
+def sort_country(country):
+    return (-country["Gold"], - country["Silver"], - country["Bronze"], country["Country"])
+def rank_country(medal_tally):
+    medal_tally.sort(key=sort_country)
+    rank=1
+    for i in medal_tally:
+        i["Rank"]= rank
+        rank+=1
+
+rank_country(Whole_data)
+print_Whole_table(Whole_data)
+
+
 # A Function to merge data of Two lists
 def Merge_data(athlete_data, medal_data):
     merged_data = []
@@ -356,21 +370,6 @@ def print_average_medals(olympic_data):
     print("-" * 57)
 data_with_averages = average_medals_per_athlete(Whole_data)
 #print_average_medals(data_with_averages)
-
-
-#SOrting the Tables
-def sort_country(country):
-    return (-country["Gold"], - country["Silver"], - country["Bronze"], country["Country"])
-def rank_country(medal_tally):
-    medal_tally.sort(key=sort_country)
-    rank=1
-    for i in medal_tally:
-        i["Rank"]= rank
-        rank+=1
-
-rank_country(Whole_data)
-print_Whole_table(Whole_data)
-
 def average_athletes_per_country(athletes_list):
     total_athletes = sum(country['Total_Athletes'] for country in athletes_list)
     average_athletes = total_athletes / len(athletes_list)
@@ -532,11 +531,11 @@ def get_user_input():
 while True:
     user_input = get_user_input()
     if user_input is not None:
-        country_code = user_input.get('Country_Code')
-        country_name = user_input.get('Country')
-        female_athletes = user_input.get('Female')
-        male_athletes = user_input.get('Male')
-        medal_data = user_input.get('Medals', None) 
+        country_code = user_input.get('country_code')
+        country_name = user_input.get('country_name')
+        female_athletes = user_input.get('female_athletes')
+        male_athletes = user_input.get('male_athletes')
+        medal_data = user_input.get('medal_data', None) 
         Whole_data = add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data)
 
         more_countries = input("Do you want to add another country? (yes/no): ").lower()
@@ -544,8 +543,5 @@ while True:
             break
     else:
         print("Adding country canceled.")
-        break
+        break  # This break is to exit the loop if the user cancels
 
-    else:
-        print("Adding country canceled.")
-        break
