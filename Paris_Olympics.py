@@ -221,27 +221,36 @@ print("Different countries:", different_countries)
 
 # A Function to merge data of Two lists
 def Merge_data(athlete_data, medal_data):
-  merged_data = []
+    merged_data = []
+    medal_dict = {entry['Country_Code']: entry for entry in medal_data}
 
-  for athlete in athlete_data:
-    country = athlete['Country']
-    country_medals = medal_data.get(country, {})
 
-    merged_entry = {
-        "Country": country,
-        "Female": athlete['Female'],
-        "Male": athlete['Male'],
-        "Total_Athletes": athlete['Total Athletes'],
-        "Gold": country_medals.get("Gold", 0),
-        "Silver": country_medals.get("Silver", 0),
-        "Bronze": country_medals.get("Bronze", 0),
-        "Total_Medals": country_medals.get("Total", 0)
-    }
+    for athlete in athlete_data:
+        country_code = athlete['Country_Code']
+        country_medals = medal_dict.get(country_code, {
+            "Gold": 0,
+            "Silver": 0,
+            "Bronze": 0,
+            "Total": 0
+        })
+        merged_entry = {
+            "Country_Code": country_code,
+            "Country": athlete['Country'],
+            "Female": athlete['Female'],
+            "Male": athlete['Male'],
+            "Total_Athletes": athlete['Total Athletes'],
+            "Gold": country_medals.get("Gold", 0),
+            "Silver": country_medals.get("Silver", 0),
+            "Bronze": country_medals.get("Bronze", 0),
+            "Total_Medals": country_medals.get("Total", 0)
+        }
 
-    merged_data.append(merged_entry)
+        merged_data.append(merged_entry)
 
-  return merged_data
+      return merged_data
 Whole_data = Merge_data(Athlete_list, medal_tally)
+
+# A Function To Print Whole data
 def print_Whole_table(olympic_data):
     #Print the header
     print(" Rank | Country                          | Female  | Male    | Total Athletes   | Gold  | Silver | Bronze | Total Medals")
@@ -250,4 +259,8 @@ def print_Whole_table(olympic_data):
     # Print each row
     for entry in olympic_data:
         print(f"{entry['Rank']:6} | {entry['Country']:32} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total_Athletes']:16} | {entry['Gold']:5} | {entry['Silver']:6} | {entry['Bronze']:6} | {entry['Total_Medals']:7}")
+
+
+        rank+=1
+
 print_Whole_table(Whole_data)
