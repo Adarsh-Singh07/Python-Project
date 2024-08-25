@@ -315,14 +315,16 @@ def Merge_data(athlete_data, medal_data):
         rank_country(merged_data)
     return merged_data
 Whole_data = Merge_data(Athletes_list, medal_tally)
+
 def find_missing_countries(country_code_list, merged_data):
    
     merged_codes = set(entry['Country_Code'] for entry in merged_data)  # Efficient lookup
     missing_codes = [code for code in country_code_list if code not in merged_codes]
     return missing_codes
 
-missing_countries = find_missing_countries(country_code_list, Athletes_list)
-print("Missing countries:", missing_countries)
+# missing_countries = find_missing_countries(country_code_list, Athletes_list)
+# print("Missing countries:", missing_countries)
+
 # A Function To Print Whole data
 def print_Whole_table(olympic_data):
     #Print the header
@@ -384,8 +386,8 @@ def find_different_countries(list1, list2):
     different_countries = list(set1.symmetric_difference(set2))
     return different_countries
 
-different_countries = find_different_countries(Athletes_list, Whole_data)
-print("Different countries:", different_countries)
+# different_countries = find_different_countries(Athletes_list, Whole_data)
+# print("Different countries:", different_countries)
 
 
 def search_country(data, search_term):
@@ -405,6 +407,61 @@ def print_country_details(country_data):
         print("-" * 40)
     else:
         print("Country not found.")
-search_term = input("Enter country name or code: ")
-country_info = search_country(Whole_data, search_term)
-print_country_details(country_info)
+# search_term = input("Enter country name or code: ")
+# country_info = search_country(Whole_data, search_term)
+# print_country_details(country_info)
+
+# Addidng a new Country Function
+def add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data=None):
+    # Flag to check if the country exists in Athletes_list
+    country_exists = False
+   
+    # Update Athletes_list if country exists
+    for entry in Athletes_list:
+        entry_country_code = entry.get('Country_Code', "")
+        entry_country_name = entry.get('Country', "")
+
+        if isinstance(entry_country_code, str) and isinstance(entry_country_name, str):
+            # Ensure the country code is uppercase
+            country_code = country_code.upper()
+                       
+            
+            # Format the country name to title case
+            country_name = country_name.title()
+            
+            new_entry = {
+                'Country_Code': country_code,
+                'Country': country_name,
+                'Female': female_athletes,
+                'Male': male_athletes,
+                'Total Athletes': female_athletes + male_athletes
+            }
+            Athletes_list.append(new_entry)
+            # print(f"Added new entry to Athletes_list: {new_entry}")  # Debugging print
+        
+    # Check if the country exists in medal_tally
+    # Check if the country exists in medal_tally
+    medal_exists = False
+    if medal_data:
+        for entry in medal_tally:
+            entry_country_code = entry.get('Country_Code', "")
+            entry_country_name = entry.get('Country', "")
+            
+            if isinstance(entry_country_code, str) and isinstance(entry_country_name, str):
+                if entry_country_code.lower() == country_code.lower() and entry_country_name.lower() == country_name.lower():
+                    entry.update(medal_data)
+                    medal_exists = True
+                    break
+        # If country doesn't exist in medal_tally, add a new entry
+        if not medal_exists:
+            new_medal_entry = {
+                'Rank': len(medal_tally) + 1,  # Assuming ranks are sequential
+                'Country_Code': country_code.upper(),
+                'Country': country_name,
+                **medal_data
+            }
+            medal_tally.append(new_medal_entry)
+    # Update Whole_data
+    Whole_data = Merge_data(Athletes_list, medal_tally)
+
+    return Whole_data
