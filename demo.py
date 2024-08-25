@@ -337,7 +337,24 @@ def print_medal_tally(medal_tally, n):
     for i in range(n):  # Iterate only up to n entries
         entry = medal_tally[i]
         print(f"{entry['Rank']:<6} {entry['Country_Code']:<13} {entry['Country']:<20} {entry['Gold']:<6} {entry['Silver']:<7} {entry['Bronze']:<7} {entry['Total']:<6}")
+#Searching a country in data
+def search_country(data, search_term):
+    search_term = search_term.lower()  # Case-insensitive search
 
+    for entry in data:
+        if entry['Country'].lower() == search_term or entry['Country_Code'].lower() == search_term:
+            return entry
+#after Seaching printing the country    
+def print_country_details(country_data):
+    if country_data:
+        print("-" * 40)
+        for key, value in country_data.items():
+            print(f"{key}: {value}")
+        print("-" * 40)
+    else:
+        print("Country not found.")
+
+    return None
 # Function to print the whole table
 def print_whole_table(olympic_data):
     print(" Rank | Country                          | Female  | Male    | Total Athletes   | Gold  | Silver | Bronze | Total Medals")
@@ -439,8 +456,9 @@ def athlete_data_menu():
     print("6. Countries with equal male and female athletes")
     print("7. Country with the least athletes")
     print("8. Countries with more than a threshold number of athletes")
-    print("9. Go Back")
-    choice = input("Enter your choice (1-9): ")
+    print("9. Search for a Country")
+    print("10. Go Back")
+    choice = input("Enter your choice (1-10): ")
     return choice
 
 def medal_tally_menu():
@@ -448,16 +466,18 @@ def medal_tally_menu():
     print("1. Country with the most gold medals")
     print("2. Print entire medal tally")
     print("3. Top N countries in Medal Tally")
-    print("4. Go Back")
-    choice = input("Enter your choice (1-3): ")
+    print("4. Search for a Country")
+    print("5. Go Back")
+    choice = input("Enter your choice (1-5): ")
     return choice
 
 def combined_data_menu():
     print("\n=== Combined Data Analysis ===")
     print("1. Average medals per athlete")
     print("2. Find missing countries between lists")
-    print("3. Go Back")
-    choice = input("Enter your choice (1-3): ")
+    print("3. Search for a Country")
+    print("4. Go Back")
+    choice = input("Enter your choice (1-5): ")
     return choice
 
 def add_new_country_flow():
@@ -533,6 +553,10 @@ def main():
                     for country in above_threshold:
                         print(country)
                 elif sub_choice == '9':
+                    search_term = input("Enter country name or code to search: ")
+                    country_info = search_country(Athletes_list, search_term)
+                    print_country_details(country_info)
+                elif sub_choice == '10':
                     break
                 else:
                     print("Invalid choice. Please try again.")
@@ -550,6 +574,10 @@ def main():
                     n= input(int("Enter the N(Range) you want to print"))
                     print_medal_tally(medal_tally, n)
                 elif sub_choice == '4':
+                    search_term = input("Enter country name or code to search: ")
+                    country_info = search_country(medal_tally, search_term)
+                    print_country_details(country_info)
+                elif sub_choice == '5':
                     break
                 else:
                     print("Invalid choice. Please try again.")
@@ -567,6 +595,10 @@ def main():
                     for code in missing_countries:
                         print(code)
                 elif sub_choice == '3':
+                    search_term = input("Enter country name or code to search: ")
+                    country_info = search_country(Whole_data, search_term)
+                    print_country_details(country_info)
+                elif sub_choice == '4':
                     break
                 else:
                     print("Invalid choice. Please try again.")
