@@ -350,6 +350,6 @@ def rank_country(medal_tally):
     for i in medal_tally:
         i["Rank"]= rank
         rank+=1
-data_with_averages = average_medals_per_athlete(merged_data)
+data_with_averages = average_medals_per_athlete(Whole_data)
 rank_country(Whole_data)
 print_Whole_table(Whole_data)
