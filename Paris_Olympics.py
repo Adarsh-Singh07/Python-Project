@@ -271,17 +271,18 @@ medal_tally = [
     {"Rank": 96, "Country_Code": "VEN", "Country": "Venezuela", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1}
 ]
 
-# Find The Different Countries between Two Lists
-def find_different_countries(list1, list2):
-    set1 = set(entry['Country'] for entry in list1)  # Extract country codes
-    set2 = set(entry['Country'] for entry in list2)  # Extract country codes
-    
-    different_countries = list(set1.symmetric_difference(set2))
-    return different_countries
 
-different_countries = find_different_countries(Athletes_list, Whole_data)
-print("Different countries:", different_countries)
+# To remove duplicates from the data
+def remove_duplicates(data):
+    unique_countries = []
+    seen_codes = set()
+    for entry in data:
+        country_code = entry['Country_Code']
+        if country_code not in seen_codes:
+            unique_countries.append(entry)
+            seen_codes.add(country_code)
 
+    return unique_countries
 
 # A Function to merge data of Two lists
 def Merge_data(athlete_data, medal_data):
@@ -372,3 +373,13 @@ def average_athletes_per_country(athletes_list):
 
 average_athletes = average_athletes_per_country(Whole_data)
 print(f"Average number of athletes per country: {average_athletes:.2f}")
+# Find The Different Countries between Two Lists
+def find_different_countries(list1, list2):
+    set1 = set(entry['Country'] for entry in list1)  # Extract country codes
+    set2 = set(entry['Country'] for entry in list2)  # Extract country codes
+    
+    different_countries = list(set1.symmetric_difference(set2))
+    return different_countries
+
+different_countries = find_different_countries(Athletes_list, Whole_data)
+print("Different countries:", different_countries)
