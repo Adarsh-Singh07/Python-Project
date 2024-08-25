@@ -348,11 +348,14 @@ def print_average_medals(olympic_data):
     print("-" * 57)
     for record in olympic_data:
         country_name = record['Country']
-        average_medals = record['average_medals_per_athlete']
+        average_medals = record['Average Medals Per Athlete']
         print(f"{country_name:<32} | {average_medals:.3f}")  # Format to 3 decimal places
     print("-" * 57)
+data_with_averages = average_medals_per_athlete(Whole_data)
+#print_average_medals(data_with_averages)
 
 
+#SOrting the Tables
 def sort_country(country):
     return (-country["Gold"], - country["Silver"], - country["Bronze"], country["Country"])
 def rank_country(medal_tally):
@@ -361,8 +364,7 @@ def rank_country(medal_tally):
     for i in medal_tally:
         i["Rank"]= rank
         rank+=1
-data_with_averages = average_medals_per_athlete(Whole_data)
-#print_average_medals(data_with_averages)
+
 rank_country(Whole_data)
 print_Whole_table(Whole_data)
 
