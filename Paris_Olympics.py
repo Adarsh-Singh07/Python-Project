@@ -1,4 +1,5 @@
-#List Of Countries by their athletes count
+#List Of Countries by their athletes counts
+
 Athletes_list = [
     {'Country_Code': 'USA', 'Country': 'United States', 'Female': 328, 'Male': 291, 'Total Athletes': 619},
     {'Country_Code': 'FRA', 'Country': 'France', 'Female': 295, 'Male': 305, 'Total Athletes': 600},
