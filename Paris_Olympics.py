@@ -313,7 +313,14 @@ def Merge_data(athlete_data, medal_data):
 
     return merged_data
 Whole_data = Merge_data(Athletes_list, medal_tally)
+def find_missing_countries(country_code_list, merged_data):
+   
+    merged_codes = set(entry['Country_Code'] for entry in merged_data)  # Efficient lookup
+    missing_codes = [code for code in country_code_list if code not in merged_codes]
+    return missing_codes
 
+missing_countries = find_missing_countries(country_code_list, Athletes_list)
+print("Missing countries:", missing_countries)
 # A Function To Print Whole data
 def print_Whole_table(olympic_data):
     #Print the header
