@@ -331,6 +331,16 @@ def print_Whole_table(olympic_data):
     for entry in olympic_data:
         print(f"{entry['Rank']:6} | {entry['Country']:32} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total_Athletes']:16} | {entry['Gold']:5} | {entry['Silver']:6} | {entry['Bronze']:6} | {entry['Total_Medals']:7}")
 
+# Function to calculate
+def average_medals_per_athlete(olympic_data):
+    for record in olympic_data:
+        if record['Total_Athletes'] > 0:
+            record['average_medals_per_athlete'] = record['Total_Medals'] / record['Total_Athletes']
+        else:
+            record['average_medals_per_athlete'] = 0
+    return olympic_data
+
+# To Print Average Medals Per Country
 def print_average_medals(olympic_data):
     print("-" * 57)
     print("Country                          | Avg Medals per Athlete")
