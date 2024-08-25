@@ -385,6 +385,17 @@ def find_different_countries(list1, list2):
 
 different_countries = find_different_countries(Athletes_list, Whole_data)
 print("Different countries:", different_countries)
+
+
+def search_country(data, search_term):
+    search_term = search_term.lower()  # Case-insensitive search
+
+    for entry in data:
+        if entry['Country'].lower() == search_term or entry['Country_Code'].lower() == search_term:
+            return entry
+
+    return None
+
 def print_country_details(country_data):
     if country_data:
         print("-" * 40)
