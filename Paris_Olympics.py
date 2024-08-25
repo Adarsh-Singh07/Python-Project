@@ -311,7 +311,8 @@ def Merge_data(athlete_data, medal_data):
         }
 
         merged_data.append(merged_entry)
-
+        merged_data= remove_duplicates(merged_data)
+        rank_country(merged_data)
     return merged_data
 Whole_data = Merge_data(Athletes_list, medal_tally)
 def find_missing_countries(country_code_list, merged_data):
