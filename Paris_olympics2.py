@@ -95,7 +95,6 @@ Athletes_list = [
     {'Country_Code': 'BOT', 'Country': 'Botswana', 'Female': 2, 'Male': 12, 'Total Athletes': 14},
     {'Country_Code': 'PRK', 'Country': 'DPR Korea', 'Female': 10, 'Male': 4, 'Total Athletes': 14},
     {'Country_Code': 'SRI', 'Country': 'Sri Lanka', 'Female': 9, 'Male': 5, 'Total Athletes': 14},
-    {'Country_Code': 'NAM', 'Country': 'Namibia', 'Female': 3, 'Male': 11, 'Total Athletes': 14},
     {'Country_Code': 'CIV', 'Country': 'Côte d’Ivoire', 'Female': 7, 'Male': 6, 'Total Athletes': 13},
     {'Country_Code': 'BIH', 'Country': 'Bosnia and Herzegovina', 'Female': 4, 'Male': 8, 'Total Athletes': 12},
     {'Country_Code': 'SEN', 'Country': 'Senegal', 'Female': 2, 'Male': 10, 'Total Athletes': 12},
@@ -123,7 +122,6 @@ Athletes_list = [
     {'Country_Code': 'SMR', 'Country': 'San Marino', 'Female': 2, 'Male': 2, 'Total Athletes': 4},
     {'Country_Code': 'BIZ', 'Country': 'Belize', 'Female': 3, 'Male': 1, 'Total Athletes': 4},
     {'Country_Code': 'HAI', 'Country': 'Haiti', 'Female': 2, 'Male': 2, 'Total Athletes': 4},
-    {'Country_Code': 'NCA', 'Country': 'Nicaragua', 'Female': 2, 'Male': 1, 'Total Athletes': 3},
     {'Country_Code': 'KIR', 'Country': 'Kiribati', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
     {'Country_Code': 'BRU', 'Country': 'Brunei Darussalam', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
     {'Country_Code': 'CHA', 'Country': 'Chad', 'Female': 1, 'Male': 2, 'Total Athletes': 3},
@@ -140,7 +138,6 @@ Athletes_list = [
     {'Country_Code': 'TUV', 'Country': 'Tuvalu', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
     {'Country_Code': 'RWA', 'Country': 'Rwanda', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
     {'Country_Code': 'STK', 'Country': 'St Kitts and Nevis', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'MON', 'Country': 'Monaco', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'CUW', 'Country': 'Curaçao', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'LBA', 'Country': 'Libya', 'Female': 1, 'Male': 3, 'Total Athletes': 4},
     {'Country_Code': 'MYA', 'Country': 'Myanmar', 'Female': 0, 'Male': 3, 'Total Athletes': 3}, 
@@ -150,27 +147,19 @@ Athletes_list = [
     {'Country_Code': 'MAD', 'Country': 'Madagascar', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
     {'Country_Code': 'LES', 'Country': 'Lesotho', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
     {'Country_Code': 'MTN', 'Country': 'Mauritania', 'Female': 0, 'Male': 2, 'Total Athletes': 2},
-    {'Country_Code': 'STP', 'Country': 'Sao Tome and Principe', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
     {'Country_Code': 'SWZ', 'Country': 'Eswatini', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
     {'Country_Code': 'BEN', 'Country': 'Benin', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
     {'Country_Code': 'NAM', 'Country': 'Namibia', 'Female': 2, 'Male': 0, 'Total Athletes': 2},
     {'Country_Code': 'FSM', 'Country': 'Micronesia', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
     {'Country_Code': 'GAM', 'Country': 'Gambia', 'Female': 1, 'Male': 1, 'Total Athletes': 2},
-    {'Country_Code': 'AND', 'Country': 'Andorra', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
     {'Country_Code': 'PLW', 'Country': 'Palau', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'TLS', 'Country': 'Timor-Leste', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'SOL', 'Country': 'Solomon Islands', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
     {'Country_Code': 'SSD', 'Country': 'South Sudan', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
     {'Country_Code': 'TGA', 'Country': 'Tonga', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'COK', 'Country': 'Cook Islands', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
     {'Country_Code': 'MTQ', 'Country': 'Martinique', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'NRU', 'Country': 'Nauru', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'VIN', 'Country': 'Saint Vincent and the Grenadines', 'Female': 1, 'Male': 0, 'Total Athletes': 1},
-    {'Country_Code': 'TUV', 'Country': 'Tuvalu', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'VAN', 'Country': 'Vanuatu', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'SMR', 'Country': 'San Marino', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'GRN', 'Country': 'Grenada', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
-    {'Country_Code': 'DJI', 'Country': 'Djibouti', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'MHL', 'Country': 'Marshall Islands', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'DMA', 'Country': 'Dominica', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
     {'Country_Code': 'MON', 'Country': 'Monaco', 'Female': 0, 'Male': 1, 'Total Athletes': 1},
@@ -179,6 +168,7 @@ Athletes_list = [
     {'Country_Code': 'MAW', 'Country': 'Malawi', 'Female': 0, 'Male': 1, 'Total Athletes': 1}
 
 ]
+print(len(Athletes_list))
 
 def print_simple_table(data):
     # Print the header
