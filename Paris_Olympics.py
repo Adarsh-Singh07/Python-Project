@@ -364,3 +364,11 @@ data_with_averages = average_medals_per_athlete(Whole_data)
 #print_average_medals(data_with_averages)
 rank_country(Whole_data)
 print_Whole_table(Whole_data)
+
+def average_athletes_per_country(athletes_list):
+    total_athletes = sum(country['Total_Athletes'] for country in athletes_list)
+    average_athletes = total_athletes / len(athletes_list)
+    return average_athletes
+
+average_athletes = average_athletes_per_country(Whole_data)
+print(f"Average number of athletes per country: {average_athletes:.2f}")
