@@ -317,6 +317,17 @@ def merge_data(athlete_data, medal_data):
     rank_country(merged_data)
     return merged_data
 
+def print_medal_tally(medal_tally, n):
+    #If The given N is greater than Total Countries
+    if n > len(medal_tally):
+        n=len(medal_tally)
+    header = f"{'Rank':<6} {'Country_Code':<13} {'Country':<20} {'Gold':<6} {'Silver':<7} {'Bronze':<7} {'Total':<6}"
+    print(header)
+    print("-" * len(header))
+    for i in range(n):  # Iterate only up to n entries
+        entry = medal_tally[i]
+        print(f"{entry['Rank']:<6} {entry['Country_Code']:<13} {entry['Country']:<20} {entry['Gold']:<6} {entry['Silver']:<7} {entry['Bronze']:<7} {entry['Total']:<6}")
+
 # Function to print the whole table
 def print_whole_table(olympic_data):
     print(" Rank | Country                          | Female  | Male    | Total Athletes   | Gold  | Silver | Bronze | Total Medals")
@@ -426,7 +437,8 @@ def medal_tally_menu():
     print("\n=== Medal Tally Analysis ===")
     print("1. Country with the most gold medals")
     print("2. Print entire medal tally")
-    print("3. Go Back")
+    print("3. Top N countries in Medal Tally")
+    print("4. Go Back")
     choice = input("Enter your choice (1-3): ")
     return choice
 
@@ -531,8 +543,12 @@ def main():
                     most_gold_country = country_with_most_gold_medals(Whole_data)
                     print(f"Country with the most gold medals: {most_gold_country}")
                 elif sub_choice == '2':
-                    print_whole_table(Whole_data)
+                    
+                    print_medal_tally(medal_tally, 200)
                 elif sub_choice == '3':
+                    n= input(int("Enter the N(Range) you want to print"))
+                    print_medal_tally(medal_tally, n)
+                elif sub_choice == '4':
                     break
                 else:
                     print("Invalid choice. Please try again.")
