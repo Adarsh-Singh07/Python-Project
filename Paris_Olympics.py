@@ -217,3 +217,28 @@ def find_different_countries(list1, list2):
 
 different_countries = find_different_countries(athletes_list, Athletes_list)
 print("Different countries:", different_countries)
+
+
+# A Function to merge data of Two lists
+def Merge_data(athlete_data, medal_data):
+  merged_data = []
+
+  for athlete in athlete_data:
+    country = athlete['Country']
+    country_medals = medal_data.get(country, {})
+
+    merged_entry = {
+        "Country": country,
+        "Female": athlete['Female'],
+        "Male": athlete['Male'],
+        "Total_Athletes": athlete['Total Athletes'],
+        "Gold": country_medals.get("Gold", 0),
+        "Silver": country_medals.get("Silver", 0),
+        "Bronze": country_medals.get("Bronze", 0),
+        "Total_Medals": country_medals.get("Total", 0)
+    }
+
+    merged_data.append(merged_entry)
+
+  return merged_data
+Whole_data = Merge_data(Athlete_list, medal_tally)
