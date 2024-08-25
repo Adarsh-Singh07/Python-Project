@@ -317,6 +317,16 @@ def merge_data(athlete_data, medal_data):
     rank_country(merged_data)
     return merged_data
 
+def print_simple_table(data):
+    # Print the header
+    print("Country Name                | Country Code | Female  | Male   | Total  ")
+    print("------------------------------|---------------|---------|--------|--------")
+
+    # Print each row
+    for entry in data:
+        print(f"{entry['Country']:32} | {entry['Country_Code']:13} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total Athletes']:7}")
+
+
 def print_medal_tally(medal_tally, n):
     #If The given N is greater than Total Countries
     if n > len(medal_tally):
@@ -522,7 +532,7 @@ def main():
                         print(country)
                 elif sub_choice == '7':
                     least_athletes = n_country_with_least_athletes(Athletes_list, 1)
-                    print("Country with the least athletes:")
+                    print_simple_table(least_athletes)
                     for country in least_athletes:
                         print(country['Country'])
                 elif sub_choice == '8':
