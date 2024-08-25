@@ -274,12 +274,12 @@ medal_tally = [
 # Find The Different Countries between Two Lists
 def find_different_countries(list1, list2):
     set1 = set(entry['Country'] for entry in list1)  # Extract country codes
-    set2 = set(entry['Country '] for entry in list2)  # Extract country codes
+    set2 = set(entry['Country'] for entry in list2)  # Extract country codes
     
     different_countries = list(set1.symmetric_difference(set2))
     return different_countries
 
-different_countries = find_different_countries(athletes_list, Athletes_list)
+different_countries = find_different_countries(Athletes_list, Whole_data)
 print("Different countries:", different_countries)
 
 
@@ -311,8 +311,8 @@ def Merge_data(athlete_data, medal_data):
 
         merged_data.append(merged_entry)
 
-      return merged_data
-Whole_data = Merge_data(Athlete_list, medal_tally)
+    return merged_data
+Whole_data = Merge_data(Athletes_list, medal_tally)
 
 # A Function To Print Whole data
 def print_Whole_table(olympic_data):
@@ -325,6 +325,13 @@ def print_Whole_table(olympic_data):
         print(f"{entry['Rank']:6} | {entry['Country']:32} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total_Athletes']:16} | {entry['Gold']:5} | {entry['Silver']:6} | {entry['Bronze']:6} | {entry['Total_Medals']:7}")
 
 
+def sort_country(country):
+    return (-country["Gold"], - country["Silver"], - country["Bronze"], country["Country"])
+def rank_country(medal_tally):
+    medal_tally.sort(key=sort_country)
+    rank=1
+    for i in medal_tally:
+        i["Rank"]= rank
         rank+=1
-
+rank_country(Whole_data)
 print_Whole_table(Whole_data)
