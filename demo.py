@@ -493,16 +493,7 @@ def delete_country_flow():
 def main():
     global Athletes_list, medal_tally, Whole_data
     
-    # Sample data
-    Athletes_list = [
-        {"Country_Code": "USA", "Country": "United States", "Female": 200, "Male": 300, "Total Athletes": 500},
-        {"Country_Code": "CAN", "Country": "Canada", "Female": 150, "Male": 250, "Total Athletes": 400},
-    ]
     
-    medal_tally = [
-        {"Country_Code": "USA", "Gold": 30, "Silver": 20, "Bronze": 15, "Total": 65},
-        {"Country_Code": "CAN", "Gold": 10, "Silver": 15, "Bronze": 12, "Total": 37},
-    ]
     
     Whole_data = merge_data(Athletes_list, medal_tally)
     
