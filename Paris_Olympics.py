@@ -242,3 +242,12 @@ def Merge_data(athlete_data, medal_data):
 
   return merged_data
 Whole_data = Merge_data(Athlete_list, medal_tally)
+def print_Whole_table(olympic_data):
+    #Print the header
+    print(" Rank | Country                          | Female  | Male    | Total Athletes   | Gold  | Silver | Bronze | Total Medals")
+    print("------|----------------------------------|---------|---------|------------------|-------|--------|--------|-------------")
+
+    # Print each row
+    for entry in olympic_data:
+        print(f"{entry['Rank']:6} | {entry['Country']:32} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total_Athletes']:16} | {entry['Gold']:5} | {entry['Silver']:6} | {entry['Bronze']:6} | {entry['Total_Medals']:7}")
+print_Whole_table(Whole_data)
