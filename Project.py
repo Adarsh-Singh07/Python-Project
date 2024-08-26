@@ -1,5 +1,3 @@
-#List Of Countries by their athletes counts
-
 Athletes_list = [
     {'Country_Code': 'USA', 'Country': 'United States', 'Female': 328, 'Male': 291, 'Total Athletes': 619},
     {'Country_Code': 'FRA', 'Country': 'France', 'Female': 295, 'Male': 305, 'Total Athletes': 600},
@@ -272,9 +270,6 @@ medal_tally = [
     {"Rank": 96, "Country_Code": "VEN", "Country": "Venezuela", "Gold": 0, "Silver": 0, "Bronze": 1, "Total": 1}
 ]
 
-
-Whole_data = merge_data(Athletes_list, medal_tally)  # Combine data
-
 # Function to remove duplicates from the data
 def remove_duplicates(data):
     unique_countries = []
@@ -320,6 +315,44 @@ def merge_data(athlete_data, medal_data):
     rank_country(merged_data)
     return merged_data
 
+def print_simple_table(data):
+    # Print the header
+    print("Country Name                  | Country Code  | Female  | Male   | Total  ")
+    print("------------------------------|---------------|---------|--------|--------")
+
+    # Print each row
+    for entry in data:
+        print(f"{entry['Country']:32} | {entry['Country_Code']:13} | {entry['Female']:7} | {entry['Male']:7} | {entry['Total Athletes']:7}")
+
+
+def print_medal_tally(medal_tally, n):
+    #If The given N is greater than Total Countries
+    if n > len(medal_tally):
+        n=len(medal_tally)
+    header = f"{'Rank':<6} {'Country_Code':<13} {'Country':<20} {'Gold':<6} {'Silver':<7} {'Bronze':<7} {'Total':<6}"
+    print(header)
+    print("-" * len(header))
+    for i in range(n):  # Iterate only up to n entries
+        entry = medal_tally[i]
+        print(f"{entry['Rank']:<6} {entry['Country_Code']:<13} {entry['Country']:<20} {entry['Gold']:<6} {entry['Silver']:<7} {entry['Bronze']:<7} {entry['Total']:<6}")
+#Searching a country in data
+def search_country(data, search_term):
+    search_term = search_term.lower()  # Case-insensitive search
+
+    for entry in data:
+        if entry['Country'].lower() == search_term or entry['Country_Code'].lower() == search_term:
+            return entry
+#after Seaching printing the country    
+def print_country_details(country_data):
+    if country_data:
+        print("-" * 40)
+        for key, value in country_data.items():
+            print(f"{key}: {value}")
+        print("-" * 40)
+    else:
+        print("Country not found.")
+
+    return None
 # Function to print the whole table
 def print_whole_table(olympic_data):
     print(" Rank | Country                          | Female  | Male    | Total Athletes   | Gold  | Silver | Bronze | Total Medals")
@@ -340,9 +373,9 @@ def top_10_countries_by_sex_ratio(athletes_list):
 def countries_with_more_female_athletes(athletes_list):
     countries = [(country['Country'], country['Female']) for country in athletes_list if country['Female'] > country['Male']]
     print("Countries with More Female Athletes:")
-    print("-----------------------------------")
+    print("-----------------------------------------------------------")
     for country, female_count in countries:
-        print(f"{country}: {female_count} female athletes")
+        print(f"{country:25}: {female_count} female athletes")
 
 def delete_country(country_code, country_name, data_list):
     index = None
@@ -372,79 +405,242 @@ def countries_above_threshold(athletes_list, threshold):
     countries = [country['Country'] for country in athletes_list if country['Total Athletes'] > threshold]
     return countries
 
-# Main function with an interactive menu
+def average_medals_per_athlete(whole_data):
+    total_medals = sum(entry['Total_Medals'] for entry in whole_data)
+    total_athletes = sum(entry['Total_Athletes'] for entry in whole_data)
+    if total_athletes == 0:
+        return 0
+    return total_medals / total_athletes
+
+def find_missing_countries(country_code_list, whole_data):
+    existing_codes = {entry['Country'] for entry in whole_data}
+    missing_codes = [code for code in country_code_list if code not in existing_codes]
+    return missing_codes
+
+def add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data):
+    # Create a new entry and add it to the Whole_data
+    new_entry = {
+        "Country_Code": country_code,
+        "Country": country_name,
+        "Female": female_athletes,
+        "Male": male_athletes,
+        "Total_Athletes": female_athletes + male_athletes,
+        "Gold": medal_data.get("Gold", 0),
+        "Silver": medal_data.get("Silver", 0),
+        "Bronze": medal_data.get("Bronze", 0),
+        "Total_Medals": medal_data.get("Total", 0)
+    }
+    Whole_data.append(new_entry)
+    rank_country(Whole_data)
+    return Whole_data
+
+def main_menu():
+    print("\n=== Olympic Data Analysis Menu ===")
+    print("1. Analyze Athlete Data")
+    print("2. Analyze Medal Tally")
+    print("3. Combine and Analyze Data")
+    print("4. Add or Delete a Country")
+    print("5. Exit")
+    choice = input("Enter your choice (1-5): ")
+    return choice
+
+def athlete_data_menu():
+    print("\n=== Athlete Data Analysis ===")
+    print("1. Top N countries with most female participants")
+    print("2. Top N countries with most male participants")
+    print("3. Top N countries with most total participants")
+    print("4. Top 10 countries by male-to-female athlete ratio")
+    print("5. Countries with more female athletes than male")
+    print("6. Countries with equal male and female athletes")
+    print("7. Country with the least athletes")
+    print("8. Countries with more than a threshold number of athletes")
+    print("9. Search for a Country")
+    print("10. Go Back")
+    choice = input("Enter your choice (1-10): ")
+    return choice
+
+def medal_tally_menu():
+    print("\n=== Medal Tally Analysis ===")
+    print("1. Country with the most gold medals")
+    print("2. Print entire medal tally")
+    print("3. Top N countries in Medal Tally")
+    print("4. Search for a Country")
+    print("5. Go Back")
+    choice = input("Enter your choice (1-5): ")
+    return choice
+
+def combined_data_menu():
+    print("\n=== Combined Data Analysis ===")
+    print("1. Average medals per athlete")
+    print("2. Find countries without medals")
+    print("3. Search for a Country")
+    print("4. Print Combined Table")
+    print("5. Go Back")
+    choice = input("Enter your choice (1-5): ")
+    return choice
+
+def add_new_country_flow():
+    print("\n=== Add a New Country ===")
+    country_code = input("Enter the country code: ").upper()
+    country_name = input("Enter the country name: ").title()
+    female_athletes = int(input("Enter the number of female athletes: "))
+    male_athletes = int(input("Enter the number of male athletes: "))
+    has_medals = input("Does the country have medals? (yes/no): ").lower()
+    medal_data = None
+    if has_medals == 'yes':
+        gold = int(input("Enter the number of gold medals: "))
+        silver = int(input("Enter the number of silver medals: "))
+        bronze = int(input("Enter the number of bronze medals: "))
+        medal_data = {"Gold": gold, "Silver": silver, "Bronze": bronze, "Total": gold + silver + bronze}
+    Whole_data = add_new_country(country_code, country_name, female_athletes, male_athletes, medal_data)
+    print("\nCountry added successfully!")
+    return Whole_data
+
+def delete_country_flow():
+    print("\n=== Delete a Country ===")
+    country_code = input("Enter the country code: ").upper()
+    country_name = input("Enter the country name: ").title()
+    
+    global Athletes_list, medal_tally, Whole_data
+    
+    Athletes_list = delete_country(country_code, country_name, Athletes_list)
+    medal_tally = delete_country(country_code, country_name, medal_tally)
+    Whole_data = delete_country(country_code, country_name, Whole_data)
+    
+    print("\nCountry deleted successfully!")
+
 def main():
+    global Athletes_list, medal_tally, Whole_data
+    
+    
+    
+    Whole_data = merge_data(Athletes_list, medal_tally)
+    
     while True:
-        print("\nWhat would you like to do?")
-        print("1. Print Athletes Data")
-        print("2. Print Medal Tally Data")
-        print("3. Combine Data and Analyze")
-        print("4. Add or Delete a Country")
-        print("5. Exit")
-        choice = input("Enter your choice (1-5): ")
-
+        choice = main_menu()
+        
         if choice == '1':
-            print("\nAthletes Data Options:")
-            print("1. Top 10 Countries by Male-to-Female Athlete Ratio")
-            print("2. Countries with More Female Athletes")
-            print("3. Countries with Equal Male and Female Athletes")
-            print("4. n Countries with Least Athletes")
-            print("5. Countries with Athletes Above a Threshold")
-            sub_choice = input("Enter your choice (1-5): ")
-
-            if sub_choice == '1':
-                top_10_countries_by_sex_ratio(Athletes_list)
-            elif sub_choice == '2':
-                countries_with_more_female_athletes(Athletes_list)
-            elif sub_choice == '3':
-                countries = countries_with_equal_male_female(Athletes_list)
-                print(f"Countries with equal male and female athletes: {countries}")
-            elif sub_choice == '4':
-                n = int(input("Enter the number of countries: "))
-                least_athletes = n_country_with_least_athletes(Athletes_list, n)
-                print(f"Countries with the least athletes: {least_athletes}")
-            elif sub_choice == '5':
-                threshold = int(input("Enter the athlete threshold: "))
-                countries = countries_above_threshold(Athletes_list, threshold)
-                print(f"Countries with more than {threshold} athletes: {countries}")
-            else:
-                print("Invalid choice. Please try again.")
-
+            while True:
+                sub_choice = athlete_data_menu()
+                if sub_choice == '1':
+                    n = int(input("Enter the number of top countries: "))
+                    top_female_participants = sorted(Athletes_list, key=lambda x: x['Female'], reverse=True)[:n]
+                    print("Top Countries by Female Participants:")
+                    
+                    print_simple_table(top_female_participants)
+                elif sub_choice == '2':
+                    n = int(input("Enter the number of top countries: "))
+                    top_male_participants = sorted(Athletes_list, key=lambda x: x['Male'], reverse=True)[:n]
+                    print("Top Countries by Male Participants:")
+                    print_simple_table(top_male_participants)
+                elif sub_choice == '3':
+                    n = int(input("Enter the number of top countries: "))
+                    top_total_participants = sorted(Athletes_list, key=lambda x: x['Total Athletes'], reverse=True)[:n]
+                    print("Top Countries by Total Participants:")
+                    print_simple_table(top_total_participants)
+                elif sub_choice == '4':
+                    top_10_countries_by_sex_ratio(Athletes_list)
+                elif sub_choice == '5':
+                    countries_with_more_female_athletes(Athletes_list)
+                elif sub_choice == '6':
+                    equal_male_female_countries = countries_with_equal_male_female(Athletes_list)
+                    print("Countries with equal male and female athletes:")
+                    for country in equal_male_female_countries:
+                        print(country)
+                elif sub_choice == '7':
+                    least_athletes = n_country_with_least_athletes(Athletes_list, 1)
+                    print_simple_table(least_athletes)
+                    for country in least_athletes:
+                        print(country['Country'])
+                elif sub_choice == '8':
+                    threshold = int(input("Enter the threshold number of athletes: "))
+                    above_threshold = countries_above_threshold(Athletes_list, threshold)
+                    print("Countries with more than the threshold number of athletes:")
+                    for country in above_threshold:
+                        print(country)
+                elif sub_choice == '9':
+                    search_term = input("Enter country name or code to search: ")
+                    country_info = search_country(Athletes_list, search_term)
+                    print_country_details(country_info)
+                elif sub_choice == '10':
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+        
         elif choice == '2':
-            print("\nMedal Tally Data Options:")
-            print("1. Country with Most Gold Medals")
-            # Add more medal-related functions as needed
-            sub_choice = input("Enter your choice (1): ")
-
-            if sub_choice == '1':
-                country = country_with_most_gold_medals(Whole_data)
-                print(f"Country with the most gold medals: {country}")
-            else:
-                print("Invalid choice. Please try again.")
-
+            while True:
+                sub_choice = medal_tally_menu()
+                if sub_choice == '1':
+                    most_gold_country = country_with_most_gold_medals(Whole_data)
+                    print(f"Country with the most gold medals: {most_gold_country}")
+                    country_info = search_country(medal_tally, most_gold_country)
+                    print_country_details(country_info)
+                elif sub_choice == '2':
+                    
+                    print_medal_tally(medal_tally, 200)
+                elif sub_choice == '3':
+                    n= int(input("Enter the N(Range) you want to print"))
+                    print_medal_tally(medal_tally, n)
+                elif sub_choice == '4':
+                    search_term = input("Enter country name or code to search: ")
+                    country_info = search_country(medal_tally, search_term)
+                    print_country_details(country_info)
+                elif sub_choice == '5':
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+        
         elif choice == '3':
-            print("\nCombine Data and Analyze:")
-            print_whole_table(Whole_data)
+            while True:
+                sub_choice = combined_data_menu()
+                if sub_choice == '1':
+                    
+                    avg_medals = average_medals_per_athlete(Whole_data)
+                    print(f"Average medals per athlete: {avg_medals:.2f}")
+                elif sub_choice == '2':
+                    country_code_list = [entry['Country'] for entry in Athletes_list]
+                    missing_countries = find_missing_countries(country_code_list, medal_tally)
+                    print("Countries without medal:")
+                    print("Total countries without medal : ", len(missing_countries))
+                    print(missing_countries)
+                    #for code in missing_countries:
+                     #   print(code)
+                elif sub_choice == '3':
+                    search_term = input("Enter country name or code to search: ")
+                    country_info = search_country(Whole_data, search_term)
+                    print_country_details(country_info)
+                elif sub_choice == '4':
+                    Whole_data= merge_data(Athletes_list, medal_tally)
+                    print_whole_table(Whole_data)
 
+                elif sub_choice == '5':
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+        
         elif choice == '4':
-            print("\nAdd or Delete a Country:")
-            action = input("Enter 'add' to add a country or 'delete' to delete a country: ").lower()
-            if action == 'delete':
-                country_code = input("Enter the country code to delete: ")
-                country_name = input("Enter the country name to delete: ")
-                Athletes_list = delete_country(country_code, country_name, Athletes_list)
-                medal_tally = delete_country(country_code, country_name, medal_tally)
-                Whole_data = delete_country(country_code, country_name, Whole_data)
-                rank_country(Whole_data)
-                print("Country deleted successfully.")
-            else:
-                print("Invalid action. Please try again.")
-
+            while True:
+                print("\n=== Add or Delete a Country ===")
+                print("1. Add a New Country")
+                print("2. Delete a Country")
+                print("3. Go Back")
+                sub_choice = input("Enter your choice (1-3): ")
+                
+                if sub_choice == '1':
+                    Whole_data = add_new_country_flow()
+                elif sub_choice == '2':
+                    delete_country_flow()
+                elif sub_choice == '3':
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+        
         elif choice == '5':
             print("Exiting the program.")
             break
+        
         else:
             print("Invalid choice. Please try again.")
 
-# Call the main function
-main()
+if __name__ == "__main__":
+    main()
